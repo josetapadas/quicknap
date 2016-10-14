@@ -4,9 +4,19 @@ _A quick way to get some REST_
 
 A Ruby lib to swifly create a simple web application.
 
+## Installation
+
+Install the gem:
+
+    gem install quicknap
+    
+Or add it to your `Gemfile`:
+
+    gem 'quicknap'
+
 ## Example
 
-    require './quicknap'
+    require 'quicknap'
 
     get '/' do
       "Taking a quick nap: #{params}!"
