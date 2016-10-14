@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'quicknap'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.date        = '2016-10-14'
   s.summary     = "QuickNap"
   s.description = "A quick way to get some REST"
