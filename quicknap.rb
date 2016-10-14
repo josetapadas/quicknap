@@ -45,6 +45,10 @@ module QuickNap
       end
     end
 
+    def listen_at(port_number)
+      Rack::Handler::WEBrick.run QuickNap::QuickNapApp, Port: port_number
+    end
+
     private
 
     def route(http_verb, route, &callback)
@@ -74,7 +78,7 @@ module QuickNap
       end
     end
 
-    delegate :get, :patch, :put, :post, :delete, :head, to: QuickNapApp
+    delegate :get, :patch, :put, :post, :delete, :head, :listen_at, to: QuickNapApp
   end
 end
 

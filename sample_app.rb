@@ -8,4 +8,4 @@ post '/' do
   "Posted: #{post_body}"
 end
 
-Rack::Handler::WEBrick.run QuickNap::QuickNapApp, Port: 6969
+listen_at 6969
