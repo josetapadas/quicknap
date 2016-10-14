@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.version     = '0.0.1'
   s.date        = '2016-10-14'
   s.summary     = "QuickNap"
-  s.description = "A quick way to get some nap"
+  s.description = "A quick way to get some REST"
   s.authors     = ["José Tapadas Alves"]
   s.email       = 'jose.tapadas@gmail.com'
   s.files       = ["lib/quicknap.rb", "README.md"]
