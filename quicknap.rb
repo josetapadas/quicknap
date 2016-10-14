@@ -55,21 +55,27 @@ module QuickNap
     def params
       @request.params
     end
+
+    def post_body
+      @request.body.read
+    end
+  end
+
+  QuickNapApp = Base.new
+
+  module Delegator
+    def self.delegate(*methods, to:)
+      Array(methods).each do |method_name|
+        define_method(method_name) do |*args, &block|
+          to.send(method_name, *args, &block)
+        end
+
+        private method_name
+      end
+    end
+
+    delegate :get, :patch, :put, :post, :delete, :head, to: QuickNapApp
   end
 end
 
-quicknap = QuickNap::Base.new
-
-quicknap.get '/home' do
-  [200, {}, ["ET Phone Home, with params: #{params.inspect}"]]
-end
-
-quicknap.get '/hello' do
-  "World #{params.inspect}"
-end
-
-quicknap.post '/man' do
-  [200, {}, request.body]
-end
-
-Rack::Handler::WEBrick.run quicknap, Port: 3000
+include QuickNap::Delegator
